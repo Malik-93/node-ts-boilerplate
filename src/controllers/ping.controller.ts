@@ -1,5 +1,6 @@
 import { Get, Route } from "tsoa";
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 interface PingResponse {
   message: string;
 }
@@ -9,7 +10,7 @@ export default class PingController {
   @Get("/")
   public async getMessage(): Promise<PingResponse> {
     return {
-      message: "pong",
+      message: `${process.env.PROJECT} pong`,
     };
   }
 }
