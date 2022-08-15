@@ -1,15 +1,15 @@
 FROM node:16-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN yarn install
 COPY . .
-RUN npm run build
+RUN yarn run build
 
 FROM node:16-alpine AS server
 WORKDIR /app
 COPY package* ./
-RUN npm install --production
+RUN yarn install --production
 COPY --from=builder ./app/public ./public
 COPY --from=builder ./app/build ./build
-EXPOSE 8000
-CMD ["npm", "start"]
+EXPOSE 8080
+CMD ["yarn", "start"]

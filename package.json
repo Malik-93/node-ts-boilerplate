@@ -10,7 +10,11 @@
     "build": "tsc",
     "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
     "swagger": "tsoa spec",
-    "test": "jest"
+    "test": "jest",
+    "div_into_sql": "docker exec -it <mysql-container-id> mysql -u root -p",
+    "docker_compose": "docker-compose up -d",
+    "docker_compose_logs": "docker-compose logs -f",
+    "docker_scan": "docker scan node-ts-boilerplate"
   },
   "repository": {
     "type": "git",
