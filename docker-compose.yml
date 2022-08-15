@@ -4,18 +4,20 @@ services:
     image: node:16-alpine
     command: sh -c "yarn install && yarn run dev"
     ports:
-       - 5050:5050
+       - 8080:8080
     working_dir: /app
     volumes:
        - ./:/app
     environment:
-       MYSQL_HOST: mysql
-       MYSQL_USER: root
-       MYSQL_PASSWORD: secret
-       MYSQL_DB: node-ts-boilerplate-db
-  mysql:
-     image: mysql:5.7
-     volumes:
-       - node-ts-boilerplate-data:/var/lib/mysql
+       PORT: 8080
+       MONGODB_URI: mongodb://mongo:27017/NODE_TS_DB
+  mongo:
+   image: mongo:4.2.8
+   ports:
+   - 27017:27017
+   volumes:
+   - mongodb:/data/db
+   - mongodb_config:/data/configdb
 volumes:
-   node-ts-boilerplate-data:
+ mongodb:
+ mongodb_config:      

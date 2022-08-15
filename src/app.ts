@@ -5,9 +5,10 @@ import swaggerUi from "swagger-ui-express";
 import Router from "./routes";
 import errorHandler from "./middlewares/error.handler";
 import bodyParser from "body-parser";
+import db from './utils/db';
 
 const app: Application = express();
-
+db;
 app.use(express.json());
 app.use(bodyParser.json({ type: 'application/*+json' }))
 app.use(bodyParser.urlencoded({ extended: false }))
