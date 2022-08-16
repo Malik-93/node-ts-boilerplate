@@ -30,8 +30,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            docker.pkg.github.com/${{ github.repository }}/node-ts-boilerplate:latest
-            docker.pkg.github.com/${{ github.repository }}/node-ts-boilerplate:${{ steps.get_version.outputs.version-without-v }}
-            rsbh/node-ts-boilerplate:latest
-            rsbh/node-ts-boilerplate:${{ steps.get_version.outputs.version-without-v }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/node-ts-boilerplate:latest
+          # tags: |
+          #   docker.pkg.github.com/${{ github.repository }}/node-ts-boilerplate:latest
+          #   docker.pkg.github.com/${{ github.repository }}/node-ts-boilerplate:${{ steps.get_version.outputs.version-without-v }}
+          #   rsbh/node-ts-boilerplate:latest
+          #   rsbh/node-ts-boilerplate:${{ steps.get_version.outputs.version-without-v }}
