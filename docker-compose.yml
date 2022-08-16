@@ -2,7 +2,7 @@ version: "3.7"
 services:
   app:
     image: node:16-alpine
-    command: sh -c "yarn install && yarn run dev"
+    command: sh -c "yarn install && yarn test && yarn run dev"
     ports:
        - 8080:8080
     working_dir: /app
